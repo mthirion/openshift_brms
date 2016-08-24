@@ -1,0 +1,29 @@
+CREDITS
+	rettori
+	https://github.com/rettori/decisionserver.git
+-----------------------------------------------------
+
+
+URL
+	http://host/kie-server/services/rest/server/containers/HelloRulesContainer
+
+HEADER
+	POST 
+	X-KIE-ContentType: XSTREAM
+	Content-Type: application/xml
+
+
+CONTENT
+	<batch-execution lookup="HelloRulesSession">
+
+		<insert>
+			<org.openshift.quickstarts.decisionserver.hellorules.Person>
+				<name>rettori</name>
+			</org.openshift.quickstarts.decisionserver.hellorules.Person>
+		</insert>
+		
+		<fire-all-rules/>	
+
+		<query out-identifier="greeting" name="get greetings"/>
+
+	</batch-execution>
